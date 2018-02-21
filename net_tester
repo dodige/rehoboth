@@ -1,0 +1,90 @@
+#!/bin/bash
+export PATH=${HOME}/bin:${PATH}
+
+# Set this to a reliable host.  Defaults to Google's name server, which
+# one would hope is reliable.  Basically, if this host ever fails to
+# respond to ping, then this script assumes that the cable modem got wedged
+# and proceeds to reset it.
+#
+RELIABLE_HOST=8.8.8.8
+
+# Set this to the number of seconds after which, if no ping response is
+# detected, the script assumes that the network connection is down.
+# May need to bump this up a bit if, e.g. you abuse your connection a lot,
+# like torrenting or downloading large files, etc.
+#
+TIMEOUT=10
+
+# Set this to the time, in seconds, to wait after the modem is power cycled
+# for the connection to come back up
+#
+CONNECTION_RESET_TIME=60
+
+# Set this to the number of times to retry if the connection isn't back
+# up after CONNECTION_RESET_TIME seconds before the script gives up
+#
+NUM_RETRIES=5
+
+# Set to the IP address and port of the Wemo that's connected to the
+# cable modem.
+#
+WEMO_IP=192.168.10.209
+WEMO_PORT=9999
+
+# Set this to a file where to log network outages
+#
+LOG_FILE=/var/log/net_tester.log
+
+# nothing user-changable below
+cleanup() {
+  rm -f /tmp/net_tester.lock
+}
+
+# function that does the actual power cycling
+power_cycle_modem() {
+  ADDR=$1; shift;
+  PORT=$1; shift;
+  #hs100 ${ADDR}:${PORT} off 2>&1 >/dev/null
+  tplink-smartplug.py  -t ${ADDR}  -c off
+  sleep 10
+  tplink-smartplug.py  -t ${ADDR}  -c on
+  #hs100 ${ADDR}:${PORT} on 2>&1 >/dev/null
+}
+
+# for error recovery
+trap "cleanup" 0
+
+# lock so that only one instance can run at a time
+if [ -f /tmp/net_tester.lock ]; then
+  exit 1
+else
+  touch /tmp/net_tester.lock
+fi
+
+ping -c 1 -W ${TIMEOUT} ${RELIABLE_HOST} 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo "Connection lost at `date`" >> ${LOG_FILE}
+  TRIES=1
+  while [ $TRIES -le $NUM_RETRIES ]; do
+    power_cycle_modem ${WEMO_IP} ${WEMO_PORT}
+    sleep $CONNECTION_RESET_TIME
+    # now test the connection
+    ping -c 1 -W ${TIMEOUT} ${RELIABLE_HOST} 2>&1 >/dev/null
+    if [ $? -eq 0 ]; then
+      echo "Connection has been re-established after ${TRIES} tries." >> $LOG_FILE
+      break 2
+    else
+      if [ $TRIES -lt $NUM_RETRIES ]; then
+        STATUS_MESSAGE="trying again"
+      else
+        STATUS_MESSAGE="giving up"
+      fi
+      echo "Connection still dead after ${TRIES} attempts, ${STATUS_MESSAGE}" >> ${LOG_FILE}
+    fi
+    TRIES=$((TRIES+1))
+  done
+  # still dead at this point, give up
+fi
+
+rm -f /tmp/net_tester.lock
+exit 0
