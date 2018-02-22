@@ -74,4 +74,4 @@ RUN chown -R pi:pi /home/pi
 WORKDIR /home/pi
 
 CMD ["bash", "./local_env.sh"]
-CMD ["bash", "./om2.py"]
+CMD ["bash", "python ./om2.py"]
