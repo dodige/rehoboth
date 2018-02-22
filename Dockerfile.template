@@ -22,6 +22,7 @@ RUN apt-get update && \
         x11-xserver-utils \
         croniter \
         python-dbus \
+        python-dateutil \
         xserver-xorg && \
     apt-get clean
 
@@ -72,4 +73,4 @@ RUN chown -R pi:pi /home/pi
 
 WORKDIR /home/pi
 
-#CMD ["bash", "bin/start_resin.sh"]
+CMD ["bash", "./local_env.sh"]
