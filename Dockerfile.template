@@ -20,7 +20,7 @@ RUN apt-get update && \
         sqlite3 \
         uzbl \
         x11-xserver-utils \
-        croniter \
+        python-croniter \
         python-dbus \
         python-dateutil \
         xserver-xorg && \
