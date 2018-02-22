@@ -69,7 +69,7 @@ RUN    useradd pi -d /home/pi \
 # Copy in code base
 COPY . /home/pi
 
-RUN chown -R pi:pi /home/pi
+#RUN chown -R pi:pi /home/pi
 
 WORKDIR /home/pi
 
