@@ -177,8 +177,8 @@ os.environ['LD_LIBRARY_PATH'] = OMXPLAYER_LIB_PATH
 
 print " env1 "
 
-c5 = "OMXPLAYER_DBUS_ADDR='/tmp/omxplayerdbus,pi'"
-c6 = "OMXPLAYER_DBUS_PID='/tmp/omxplayerdbus.pi.pid'"
+c5 = "OMXPLAYER_DBUS_ADDR='/tmp/omxplayerdbus.root'"
+c6 = "OMXPLAYER_DBUS_PID='/tmp/omxplayerdbus.root.pid'"
 c7 = "export DBUS_SESSION_BUS_ADDRESS=`cat $OMXPLAYER_DBUS_ADDR`"
 c8 = "export DBUS_SESSION_BUS_PID=`cat $OMXPLAYER_DBUS_PID`"
 
@@ -249,7 +249,7 @@ Popen([cmd], shell=True)
 done,retry=0,0
 while done==0:
     try:
-        with open('/tmp/omxplayerdbus.pi', 'r+') as f:
+        with open('/tmp/omxplayerdbus.root', 'r+') as f:
             omxplayerdbus = f.read().strip()
         bus = dbus.bus.BusConnection(omxplayerdbus)
         done=1
