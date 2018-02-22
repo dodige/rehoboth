@@ -20,6 +20,8 @@ RUN apt-get update && \
         sqlite3 \
         uzbl \
         x11-xserver-utils \
+        croniter \
+        python-dbus \
         xserver-xorg && \
     apt-get clean
 
