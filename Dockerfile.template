@@ -24,6 +24,7 @@ RUN apt-get update && \
         python-dbus \
         python-dateutil \
         rpi-update \
+        wget \
         xserver-xorg && \
     apt-get clean
 
