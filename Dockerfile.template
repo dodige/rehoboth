@@ -72,7 +72,7 @@ RUN    useradd pi -d /home/pi \
 #RUN wget https://raw.githubusercontent.com/sixfab/rpiShields/master/tutorials/tutorial3/ppp-creator.sh
 #RUN chmod +x ./ppp-creator.sh
 
-COPY ./ppp-creator.sh   /home/pi
+#COPY ./ppp-creator.sh   /home/pi
 
 # Copy in code base
 COPY . /home/pi
