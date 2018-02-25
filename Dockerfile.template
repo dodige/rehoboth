@@ -23,9 +23,11 @@ RUN apt-get update && \
         python-croniter \
         python-dbus \
         python-dateutil \
+        rpi-update \
         xserver-xorg && \
     apt-get clean
 
+RUN rpi-update
 #RUN rm /etc/nginx/sites-enabled/default
 #COPY ansible/roles/ssl/files/nginx_resin.conf /etc/nginx/sites-enabled/screenly.conf
 
@@ -73,5 +75,8 @@ COPY . /home/pi
 
 WORKDIR /home/pi
 
+CMD ["bash", "wget https://raw.githubusercontent.com/sixfab/rpiShields/master/tutorials/tutorial3/ppp-creator.sh"]
+CMD ["bash", "chmod +x ./ppp-creator.sh"]
+CMD ["bash", "sudo ./ppp-creator.sh internet.com ttyUSB3"]
 CMD ["bash", "./local_env.sh"]
 CMD ["python", "./om2.py"]
