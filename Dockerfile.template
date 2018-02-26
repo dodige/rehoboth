@@ -28,7 +28,7 @@ RUN apt-get update && \
         xserver-xorg && \
     apt-get clean
 
-#RUN rpi-update
+RUN printf 'y' | rpi-update
 
 #RUN rm /etc/nginx/sites-enabled/default
 #COPY ansible/roles/ssl/files/nginx_resin.conf /etc/nginx/sites-enabled/screenly.conf
