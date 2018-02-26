@@ -1,4 +1,4 @@
 
 pppd call gprs&
 
-./om2.py"
+./om2.py
