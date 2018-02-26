@@ -72,7 +72,7 @@ RUN    useradd pi -d /home/pi \
 #RUN wget https://raw.githubusercontent.com/sixfab/rpiShields/master/tutorials/tutorial3/ppp-creator.sh
 RUN chmod +x ./ppp-creator.sh
 
-RUN ./ppp-creator.sh internet.com ttyUSB3
+RUN ./ppp-creator.sh internet.com ttyUSB2
 
 #COPY ./ppp-creator.sh   /home/pi
 
@@ -86,6 +86,6 @@ WORKDIR /home/pi
 #CMD ["bash", "wget https://raw.githubusercontent.com/sixfab/rpiShields/master/tutorials/tutorial3/ppp-creator.sh"]
 #CMD ["bash", "chmod +x ./ppp-creator.sh"]
 #CMD ["bash", "./ppp-creator.sh internet.com ttyUSB3"]
-CMD ["bash", "sudo pppd call gprs&;"]
+CMD ["bash", "sudo pppd call gprs&"]
 CMD ["bash", "./local_env.sh"]
 CMD ["python", "./om2.py"]
