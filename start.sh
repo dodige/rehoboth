@@ -1,6 +1,6 @@
 
 ./om2.py
 
-sleep 90
+sleep 30
 
 ./net_tester
