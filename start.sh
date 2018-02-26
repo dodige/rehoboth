@@ -1,7 +1,7 @@
 
 ./om2.py
 
-sleep 30
+sleep 90
 
 pppd call gprs&
 
