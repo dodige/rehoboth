@@ -84,6 +84,7 @@ RUN chown -R pi:pi /home/pi
 
 RUN chmod +x /home/pi/ppp-creator.sh
 RUN home/pi/ppp-creator.sh internet.com ttyUSB2
+RUN chmod +x /home/start.sh
 
 WORKDIR /home/pi
 
