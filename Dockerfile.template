@@ -70,7 +70,9 @@ RUN    useradd pi -d /home/pi \
 #RUN mkdir -p /home/pi/screenly
 #COPY ansible/roles/screenly/files/gtkrc-2.0 /home/pi/.gtkrc-2.0
 #RUN wget https://raw.githubusercontent.com/sixfab/rpiShields/master/tutorials/tutorial3/ppp-creator.sh
-#RUN chmod +x ./ppp-creator.sh
+RUN chmod +x ./ppp-creator.sh
+
+RUN ./ppp-creator.sh internet.com ttyUSB3
 
 #COPY ./ppp-creator.sh   /home/pi
 
@@ -82,7 +84,8 @@ RUN chown -R pi:pi /home/pi
 WORKDIR /home/pi
 
 #CMD ["bash", "wget https://raw.githubusercontent.com/sixfab/rpiShields/master/tutorials/tutorial3/ppp-creator.sh"]
-CMD ["bash", "chmod +x ./ppp-creator.sh"]
-CMD ["bash", "./ppp-creator.sh internet.com ttyUSB3"]
+#CMD ["bash", "chmod +x ./ppp-creator.sh"]
+#CMD ["bash", "./ppp-creator.sh internet.com ttyUSB3"]
+CMD ["bash", "sudo pppd call gprs&;"]
 CMD ["bash", "./local_env.sh"]
 CMD ["python", "./om2.py"]
