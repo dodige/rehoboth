@@ -28,48 +28,6 @@
         <url>http://</url>
         <local_url>hh</local_url>
     </video>
-     <video priority="1" time_played="102166">
-        <filename>6.mp4</filename>
-        <duration>20</duration>
-        <schedule>*/1 * * * *</schedule>
-        <url>http://</url>
-        <local_url>tt</local_url>
-    </video>
-    <video priority="1" time_played="102166">
-        <filename>7.mp4</filename>
-        <duration>13</duration>
-        <schedule>*/1 * * * *</schedule>
-        <url>http://</url>
-        <local_url>jj</local_url>
-    </video>
-    <video priority="1" time_played="102166">
-        <filename>8.mp4</filename>
-        <duration>13</duration>
-        <schedule>*/1 * * * *</schedule>
-        <url>http://</url>
-        <local_url>hh</local_url>
-    </video>
-     <video priority="1" time_played="102166">
-        <filename>9.mp4</filename>
-        <duration>15</duration>
-        <schedule>*/1 * * * *</schedule>
-        <url>http://</url>
-        <local_url>hh</local_url>
-    </video>
-     <video priority="1" time_played="102165">
-        <filename>10.mp4</filename>
-        <duration>16</duration>
-        <schedule>*/1 * * * *</schedule>
-        <url>http://</url>
-        <local_url>hh</local_url>
-    </video>
-    <video priority="1" time_played="102165">
-        <filename>11.mp4</filename>
-        <duration>25</duration>
-        <schedule>*/1 * * * *</schedule>
-        <url>http://</url>
-        <local_url>hh</local_url>
-    </video>
     <image priority="1" time_played="0">
         <filename>4.jpg</filename>
         <duration>50</duration>
