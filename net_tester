@@ -56,8 +56,8 @@ power_cycle_modem() {
   
   /sbin/ifdown --force ppp0
   sleep 10
-	/sbin/ifup --force ppp0
-	sleep 10
+  /sbin/ifup --force ppp0
+  sleep 10
   
   
 }
