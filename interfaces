@@ -1,0 +1,10 @@
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# Include files from /etc/network/interfaces.d:
+source-directory /etc/network/interfaces.d
+auto ppp0
+iface ppp0 inet ppp
+    pre-up /etc/ppp/wait-dialup-hardware ttyUSB0 20
+	  pre-up /etc/ppp/wait-dialup-hardware ttyUSB1 20
+	  pre-up /etc/ppp/wait-dialup-hardware ttyUSB2 20
+    pre-up /etc/ppp/wait-dialup-hardware ttyUSB3 20
+    pre-up pppd call gprs
