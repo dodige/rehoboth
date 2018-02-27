@@ -54,10 +54,10 @@ power_cycle_modem() {
   #sleep 20
   #/sbin/ip route add default dev ppp0
   
-  /sbin/ifdown --force ppp0
-  sleep 10
-  /sbin/ifup --force ppp0
-  sleep 10
+  #/sbin/ifdown --force ppp0
+  #sleep 10
+  #/sbin/ifup --force ppp0
+  #sleep 10
   
   
 }
