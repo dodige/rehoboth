@@ -8,4 +8,4 @@ iface ppp0 inet ppp
 	  pre-up /etc/ppp/wait-dialup-hardware ttyUSB2 20
     pre-up /etc/ppp/wait-dialup-hardware ttyUSB3 20
     pre-up pppd call gprs
-    post-up ip route add default dev ppp0
+    post-up sudo ip route add default dev ppp0
