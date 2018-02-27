@@ -52,7 +52,7 @@ power_cycle_modem() {
   
   pppd call gprs&
   sleep 20
-  /sbin/ip route add default dev ppp0
+  sudo /sbin/ip route add default dev ppp0
   
   #/sbin/ifdown --force ppp0
   #sleep 10
