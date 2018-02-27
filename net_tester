@@ -50,7 +50,7 @@ power_cycle_modem() {
   #tplink-smartplug.py  -t ${ADDR}  -c on
   #hs100 ${ADDR}:${PORT} on 2>&1 >/dev/null
   
-  pppd call gprs&
+  sudo pppd call gprs&
   sleep 20
   sudo /sbin/ip route add default dev ppp0
   
