@@ -7,5 +7,5 @@ iface ppp0 inet ppp
 	  pre-up /etc/ppp/wait-dialup-hardware ttyUSB1 20
 	  pre-up /etc/ppp/wait-dialup-hardware ttyUSB2 20
     pre-up /etc/ppp/wait-dialup-hardware ttyUSB3 20
-    pre-up sudo pppd call gprs
+    pre-up sudo pppd call gprs&
     post-up sudo ip route add default dev ppp0
