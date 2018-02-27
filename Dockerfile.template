@@ -75,7 +75,7 @@ RUN    useradd pi -d /home/pi \
 #RUN ./ppp-creator.sh internet.com ttyUSB2
 
 #COPY ./ppp-creator.sh   /home/pi
-ADD  interfaces /etc/network/
+#ADD  interfaces /etc/network/
 ADD wait-dialup-hardware /etc/ppp/
 
 # Copy in code base
