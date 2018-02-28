@@ -26,6 +26,7 @@ RUN apt-get update && \
         rpi-update \
         wget \
          gnome-schedule \
+         cron \
         xserver-xorg && \
     apt-get clean
 
