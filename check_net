@@ -1,1 +1,1 @@
-*/5 * * * * /home/pi/net_tester
+*/1 * * * * /home/pi/net_tester
