@@ -25,6 +25,7 @@ RUN apt-get update && \
         python-dateutil \
         rpi-update \
         wget \
+         gnome-schedule \
         xserver-xorg && \
     apt-get clean
 
