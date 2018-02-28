@@ -77,6 +77,7 @@ RUN    useradd pi -d /home/pi \
 
 #COPY ./ppp-creator.sh   /home/pi
 ADD  interfaces /etc/network/
+ADD check_net /etc/cron.d
 ADD wait-dialup-hardware /etc/ppp/
 
 # Copy in code base
