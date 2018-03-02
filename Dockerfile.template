@@ -77,9 +77,9 @@ RUN    useradd pi -d /home/pi \
 #RUN ./ppp-creator.sh internet.com ttyUSB2
 
 #COPY ./ppp-creator.sh   /home/pi
-ADD  interfaces /etc/network/
-ADD check_net /etc/cron.d
-ADD wait-dialup-hardware /etc/ppp/
+#ADD  interfaces /etc/network/
+#ADD check_net /etc/cron.d
+#ADD wait-dialup-hardware /etc/ppp/
 
 # Copy in code base
 COPY . /home/pi
@@ -87,11 +87,11 @@ COPY . /home/pi
 
 RUN chown -R pi:pi /home/pi
 
-RUN chmod +x /home/pi/ppp-creator.sh
-RUN home/pi/ppp-creator.sh internet.com ttyUSB2
+#RUN chmod +x /home/pi/ppp-creator.sh
+#RUN home/pi/ppp-creator.sh internet.com ttyUSB2
 RUN chmod +x /home/pi/start.sh
 RUN chmod +x /home/pi/net_tester
-RUN chmod +x /etc/ppp/wait-dialup-hardware
+#RUN chmod +x /etc/ppp/wait-dialup-hardware
 
 WORKDIR /home/pi
 
