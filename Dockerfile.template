@@ -61,7 +61,7 @@ RUN apt-get update && \
 #RUN sed -i '/\[Service\]/ a\Environment=DISABLE_UPDATE_CHECK=True' /etc/systemd/system/screenly-viewer.service
 
 # Enable container init system.
-ENV INITSYSTEM on
+# ENV INITSYSTEM on
 
 # Create runtime user
 RUN    useradd pi -d /home/pi \
