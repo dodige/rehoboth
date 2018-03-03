@@ -80,6 +80,8 @@ RUN    useradd pi -d /home/pi \
 #ADD check_net /etc/cron.d
 #ADD wait-dialup-hardware /etc/ppp/
 
+COPY entry.sh /usr/bin/entry.sh
+
 # Copy in code base
 COPY . /home/pi
 
@@ -91,6 +93,8 @@ RUN chown -R pi:pi /home/pi
 RUN chmod +x /home/pi/start.sh
 RUN chmod +x /home/pi/net_tester
 #RUN chmod +x /etc/ppp/wait-dialup-hardware
+
+RUN chmod +x /usr/bin/entry.sh
 
 WORKDIR /home/pi
 
