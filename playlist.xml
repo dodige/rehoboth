@@ -22,7 +22,7 @@
         <local_url>jj</local_url>
     </video>
     <video priority="1" time_played="102166">
-        <filename>demo.m4v</filename>
+        <filename>national.mp4</filename>
         <duration>16</duration>
         <schedule>*/1 * * * *</schedule>
         <url>http://</url>
