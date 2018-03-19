@@ -24,6 +24,7 @@ RUN apt-get update && \
         python-dbus \
         python-dateutil \
         wget \
+        cec-utils \
          gnome-schedule \
          cron \
         xserver-xorg && \
