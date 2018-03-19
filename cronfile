@@ -1,4 +1,4 @@
 0 0 * * * /home/pi/powerTvOff.sh
 1 0 * * * vcgencmd display_power 0
 0 7 * * * /home/pi/powerTvOn.sh
-1 7 * * * vcgencmd display_power 0
+1 7 * * * vcgencmd display_power 1
