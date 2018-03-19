@@ -93,6 +93,12 @@ RUN chown -R pi:pi /home/pi
 #RUN home/pi/ppp-creator.sh internet.com ttyUSB2
 RUN chmod +x /home/pi/start.sh
 RUN chmod +x /home/pi/net_tester
+RUN chmod +x /home/pi/isPowerOn.sh
+RUN chmod +x /home/pi/powerTvOff.sh
+RUN chmod +x /home/pi/powerTvOn.sh
+
+RUN crontab /home/pi/cronfile 
+
 #RUN chmod +x /etc/ppp/wait-dialup-hardware
 
 RUN chmod +x /usr/bin/entry.sh
