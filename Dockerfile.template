@@ -97,7 +97,7 @@ RUN chmod +x /home/pi/isPowerOn.sh
 RUN chmod +x /home/pi/powerTvOff.sh
 RUN chmod +x /home/pi/powerTvOn.sh
 
-RUN crontab /home/pi/cronfile 
+RUN sudo crontab /home/pi/cronfile 
 
 #RUN chmod +x /etc/ppp/wait-dialup-hardware
 
