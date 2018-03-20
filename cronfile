@@ -1,5 +1,5 @@
-58 0 * * * /home/pi/powerTvOff.sh
-59 0 * * * /opt/vc/bin/vcgencmd  display_power 0
+30 1 * * * /home/pi/powerTvOff.sh
+31 1 * * * /opt/vc/bin/vcgencmd  display_power 0
 1 7 * * * /opt/vc/bin/vcgencmd display_power 1
 0 7 * * * /home/pi/powerTvOn.sh
 
