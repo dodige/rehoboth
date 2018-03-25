@@ -1,6 +1,9 @@
 FROM resin/%%RESIN_MACHINE_NAME%%-node
 MAINTAINER Anton Molodykh <amolodykh@screenly.io>
 
+
+CMD modprobe i2c-dev && python /app/demo.py
+
 RUN apt-get update && \
     apt-get -y install \
         build-essential \
