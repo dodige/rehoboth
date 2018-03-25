@@ -28,6 +28,7 @@ RUN apt-get update && \
         python-dateutil \
         wget \
         cec-utils \
+        xmltodict \
         gnome-schedule \
         cron \
         python-rpi.gpio \
