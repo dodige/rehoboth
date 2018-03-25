@@ -35,7 +35,7 @@ RUN apt-get update && \
     apt-get clean
     
     
-RUN pip install xmltodict    
+    
 RUN apt-get dist-upgrade
 
 #RUN printf 'y' | rpi-update
