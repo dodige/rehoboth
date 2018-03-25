@@ -28,8 +28,9 @@ RUN apt-get update && \
         python-dateutil \
         wget \
         cec-utils \
-         gnome-schedule \
-         cron \
+        gnome-schedule \
+        cron \
+        python-rpi.gpio \
         xserver-xorg && \
     apt-get clean
     
