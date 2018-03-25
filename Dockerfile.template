@@ -32,6 +32,8 @@ RUN apt-get update && \
          cron \
         xserver-xorg && \
     apt-get clean
+    
+apt-get dist-upgrade
 
 #RUN printf 'y' | rpi-update
 
