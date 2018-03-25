@@ -112,6 +112,9 @@ RUN chmod +x /usr/bin/entry.sh
 
 WORKDIR /home/pi
 
+RUN cd /home/pi
+RUN git clone https://github.com/modmypi/PiModules.git
+
 #CMD ["bash", "wget https://raw.githubusercontent.com/sixfab/rpiShields/master/tutorials/tutorial3/ppp-creator.sh"]
 #CMD ["bash", "chmod +x ./ppp-creator.sh"]
 #CMD ["bash", "./ppp-creator.sh internet.com ttyUSB3"]
