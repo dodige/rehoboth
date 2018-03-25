@@ -35,7 +35,7 @@ RUN apt-get update && \
         xserver-xorg && \
     apt-get clean
     
-apt-get dist-upgrade
+RUN apt-get dist-upgrade
 
 #RUN printf 'y' | rpi-update
 
