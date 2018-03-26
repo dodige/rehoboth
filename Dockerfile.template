@@ -116,6 +116,15 @@ WORKDIR /home/pi
 RUN cd /home/pi
 RUN git clone https://github.com/modmypi/PiModules.git
 
+RUN cd /home/pi/PiModules/code/python/package
+RUN python setup.py install
+
+RUN cd /home/pi/PiModules/code/python/upspico/picofssd
+RUN  python setup.py install
+RUN update-rc.d picofssd defaults
+RUN update-rc.d picofssd enable
+
+
 #CMD ["bash", "wget https://raw.githubusercontent.com/sixfab/rpiShields/master/tutorials/tutorial3/ppp-creator.sh"]
 #CMD ["bash", "chmod +x ./ppp-creator.sh"]
 #CMD ["bash", "./ppp-creator.sh internet.com ttyUSB3"]
