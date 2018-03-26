@@ -30,7 +30,6 @@ RUN apt-get update && \
         cec-utils \
         gnome-schedule \
         cron \
-        pip \
         python-rpi.gpio \
         xserver-xorg && \
     apt-get clean
