@@ -123,14 +123,14 @@ WORKDIR /home/pi
 RUN cd /home/pi
 RUN git clone https://github.com/modmypi/PiModules.git
 
-RUN cd /home/pi/PiModules/code/python/package
-RUN  /home/pi/PiModules/code/python/package/setup.py install
+##RUN cd /home/pi/PiModules/code/python/package
+##RUN  /home/pi/PiModules/code/python/package/setup.py install
 
-RUN cd /home/pi/PiModules/code/python/upspico/picofssd
-#RUN RUN chmod +x ./setup.py
-RUN  /home/pi/PiModules/code/python/upspico/picofssd/setup.py install
-RUN update-rc.d picofssd defaults
-RUN update-rc.d picofssd enable
+##RUN cd /home/pi/PiModules/code/python/upspico/picofssd
+##RUN RUN chmod +x ./setup.py
+##RUN  /home/pi/PiModules/code/python/upspico/picofssd/setup.py install
+##RUN update-rc.d picofssd defaults
+##RUN update-rc.d picofssd enable
 
 
 #CMD ["bash", "wget https://raw.githubusercontent.com/sixfab/rpiShields/master/tutorials/tutorial3/ppp-creator.sh"]
