@@ -3,7 +3,7 @@ python ./setup.py install
 
 cd /home/pi/PiModules/code/python/upspico/picofssd
 ##RUN RUN chmod +x ./setup.py
-python setup.py install
+python ./setup.py install
 update-rc.d picofssd defaults
 update-rc.d picofssd enable
 
