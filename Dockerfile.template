@@ -46,9 +46,9 @@ RUN apt-get dist-upgrade
 # Install Python requirements
 #ADD requirements.txt /tmp/requirements.txt
 RUN curl -s https://bootstrap.pypa.io/get-pip.py | python && \
-    pip install --upgrade -r /tmp/requirements.txt
+    pip install xmltodict
 
-RUN sudo pip install xmltodict
+#RUN sudo pip install xmltodict
 
 # Screenly Websocker Server
 # COPY ansible/roles/screenly/files/screenly-websocket_server_layer.service /etc/systemd/#system/screenly-websocket_server_layer.service
