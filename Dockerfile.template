@@ -135,6 +135,7 @@ RUN  python /home/pi/PiModules/code/python/upspico/picofssd/setup.py install
 ##RUN  /home/pi/PiModules/code/python/upspico/picofssd/setup.py install
 RUN update-rc.d picofssd defaults
 RUN update-rc.d picofssd enable
+WORKDIR /home/pi
 
 
 #CMD ["bash", "wget https://raw.githubusercontent.com/sixfab/rpiShields/master/tutorials/tutorial3/ppp-creator.sh"]
