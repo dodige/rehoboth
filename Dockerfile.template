@@ -124,12 +124,12 @@ RUN cd /home/pi
 RUN git clone https://github.com/modmypi/PiModules.git
 
 RUN cd /home/pi/PiModules/code/python/package
-RUN chmod +x ./setup.py
-RUN  python ./setup.py install
+RUN chmod +x /home/pi/PiModules/code/python/package/setup.py
+RUN  python /home/pi/PiModules/code/python/package/setup.py install
 
 RUN cd /home/pi/PiModules/code/python/upspico/picofssd
-RUN chmod +x ./setup.py
-RUN  python ./setup.py install
+RUN chmod +x /home/pi/PiModules/code/python/upspico/picofssd/setup.py
+RUN  python /home/pi/PiModules/code/python/upspico/picofssd/setup.py install
 ##RUN  /home/pi/PiModules/code/python/upspico/picofssd/setup.py install
 RUN update-rc.d picofssd defaults
 RUN update-rc.d picofssd enable
