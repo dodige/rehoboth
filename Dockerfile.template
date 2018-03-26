@@ -90,6 +90,9 @@ RUN    useradd pi -d /home/pi \
 #ADD wait-dialup-hardware /etc/ppp/
 
 COPY entry.sh /usr/bin/entry.sh
+COPY modules /etc/modules 
+COPY rc.local /etc/rc.local
+RUN chmod +x /etc/rc.local
 
 # Copy in code base
 COPY . /home/pi
