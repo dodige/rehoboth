@@ -90,8 +90,8 @@ RUN    useradd pi -d /home/pi \
 #ADD wait-dialup-hardware /etc/ppp/
 
 COPY entry.sh /usr/bin/entry.sh
-COPY modules /etc/modules 
-COPY rc.local /etc/rc.local
+ADD modules /etc/modules 
+ADD rc.local /etc/rc.local
 RUN chmod +x /etc/rc.local
 
 # Copy in code base
@@ -123,6 +123,7 @@ RUN cd /home/pi/PiModules/code/python/package
 RUN  ./setup.py install
 
 RUN cd /home/pi/PiModules/code/python/upspico/picofssd
+RUN RUN chmod +x ./setup.py
 RUN  ./setup.py install
 RUN update-rc.d picofssd defaults
 RUN update-rc.d picofssd enable
