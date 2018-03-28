@@ -1,7 +1,6 @@
+ /etc/init.d/cron restart
 
-sudo /etc/init.d/cron restart
-
-./om2.py
+/home/pi/om2.py
 
 # sleep 30
 
