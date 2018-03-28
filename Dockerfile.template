@@ -146,5 +146,5 @@ WORKDIR /home/pi
 #CMD ["bash", "./ppp-creator.sh internet.com ttyUSB3"]
 #CMD ["bash", "pppd call gprs&"]
 #CMD ["bash", "./local_env.sh"]
-CMD ["python", "./om2.py"]
-#CMD ["bash", "./start.sh"]
+#CMD ["python", "./om2.py"]
+CMD ["bash", "./start.sh"]
