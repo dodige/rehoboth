@@ -94,6 +94,8 @@ RUN    useradd pi -d /home/pi \
 #ADD wait-dialup-hardware /etc/ppp/
 
 ####COPY entry.sh /usr/bin/entry.sh
+#RUN chmod +x /usr/bin/entry.sh
+
 
 ADD modules /etc/modules 
 ADD rc.local /etc/rc.local
@@ -117,7 +119,7 @@ RUN sudo crontab /home/pi/cronfile
 
 #RUN chmod +x /etc/ppp/wait-dialup-hardware
 
-RUN chmod +x /usr/bin/entry.sh
+
 
 WORKDIR /home/pi
 
