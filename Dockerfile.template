@@ -147,4 +147,4 @@ WORKDIR /home/pi
 #CMD ["bash", "pppd call gprs&"]
 #CMD ["bash", "./local_env.sh"]
 #CMD ["python", "./om2.py"]
-CMD ["bash", "./start.sh"]
+CMD ["bash", "/home/pi//start.sh"]
