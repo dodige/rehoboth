@@ -31,7 +31,7 @@ RUN apt-get update && \
         gnome-schedule \
         cron \
         python-rpi.gpio \
-        rpi-update
+        rpi-update \
         xserver-xorg && \
     apt-get clean
     
