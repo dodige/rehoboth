@@ -356,9 +356,11 @@ while 1:
     print "sleeping_"
 
 
-    while pos<dur-1000000:
+    while pos<=dur-1000000:
         pos=dbusIfaceProp.Position()
         print pos
+        if pos == 0
+            break
 
     #time.sleep(1) 
     print "waking" 
