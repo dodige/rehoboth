@@ -2,7 +2,7 @@ FROM resin/%%RESIN_MACHINE_NAME%%-debian
 MAINTAINER d Odige <dodige@gmail.com>
 
 
-#CMD modprobe i2c-dev && python /app/demo.py
+CMD modprobe i2c-dev && python /app/demo.py
 
 RUN apt-get update && \
     apt-get -y install \
@@ -74,7 +74,7 @@ RUN curl -s https://bootstrap.pypa.io/get-pip.py | python && \
 #RUN sed -i '/\[Service\]/ a\Environment=DISABLE_UPDATE_CHECK=True' /etc/systemd/system/screenly-viewer.service
 
 # Enable container init system.
-#ENV INITSYSTEM on
+ENV INITSYSTEM on
 
 # Create runtime user
 RUN    useradd pi -d /home/pi \
