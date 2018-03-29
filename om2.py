@@ -353,12 +353,12 @@ while 1:
 
     #time.sleep(1)
     dbusIfaceKey2.Action(dbus.Int32("16"))
-    print "sleeping"
+    print "sleeping_"
 
 
     while pos<dur-1000000:
         pos=dbusIfaceProp.Position()
-        #print pos
+        print pos
 
     #time.sleep(1) 
     print "waking" 
