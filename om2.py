@@ -358,7 +358,7 @@ while 1:
 
     while pos<=dur-1000000:
         pos=dbusIfaceProp.Position()
-        print pos
+        #print pos
         if pos == 0:
             break
 
