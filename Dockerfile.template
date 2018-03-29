@@ -2,7 +2,7 @@ FROM resin/%%RESIN_MACHINE_NAME%%-debian
 MAINTAINER d Odige <dodige@gmail.com>
 
 
-CMD modprobe i2c-dev && python /app/demo.py
+#CMD modprobe i2c-dev && python /app/demo.py
 
 RUN apt-get update && \
     apt-get -y install \
