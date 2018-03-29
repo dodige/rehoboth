@@ -302,9 +302,11 @@ while 1:
         print "totalduration:"
         print totaldur
         pos4 = dbusIfaceProp3.Position()
-        while pos4<dur4-1000000:
+        while pos4<=dur4-1000000:
             pos4=dbusIfaceProp3.Position()
             #print pos4
+            if pos4 == 0:
+                break
         dbusIfaceKey.Action(dbus.Int32("16"))
 
     
@@ -404,9 +406,11 @@ while 1:
     print "totalduration:"
     print totaldur
     pos3 = dbusIfaceProp2.Position()
-    while pos3<dur3-1000000:
+    while pos3<=dur3-1000000:
         pos3=dbusIfaceProp2.Position()
         #print pos3
+        if pos3 == 0:
+            break
 
 
     print "waking"
