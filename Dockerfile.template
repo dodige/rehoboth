@@ -31,6 +31,7 @@ RUN apt-get update && \
         gnome-schedule \
         cron \
         python-rpi.gpio \
+        rpi-update
         xserver-xorg && \
     apt-get clean
     
@@ -40,7 +41,7 @@ RUN apt-get dist-upgrade
 
 RUN apt-get install git python-dev python-serial python-smbus python-jinja2 python-xmltodict python-psutil python-pip
 
-#RUN printf 'y' | rpi-update
+RUN printf 'y' | rpi-update
 
 #RUN rm /etc/nginx/sites-enabled/default
 #COPY ansible/roles/ssl/files/nginx_resin.conf /etc/nginx/sites-enabled/screenly.conf
