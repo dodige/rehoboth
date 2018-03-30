@@ -297,12 +297,12 @@ while 1:
         print "step inside 1"
         dbusIfaceKey.Action(dbus.Int32("16")) 
         dur4 = dbusIfaceProp3.Duration()
-        d3.text = str(dur4/1000000)
+        d3.text = str(dur4/500000)
         totaldur += dur4
         print "totalduration:"
         print totaldur
         pos4 = dbusIfaceProp3.Position()
-        while pos4<=dur4-1000000:
+        while pos4<=dur4-500000:
             pos4=dbusIfaceProp3.Position()
             #print pos4
             if pos4 == 0:
@@ -314,7 +314,7 @@ while 1:
     print "here we go again"      
 
     dur=dbusIfaceProp.Duration()
-    d1.text = str(dur/1000000)
+    d1.text = str(dur/500000)
     totaldur += dur
     print dur
     print "totalduration:"
@@ -323,7 +323,7 @@ while 1:
     print dbusIfaceProp.Position()
 
     pos = dbusIfaceProp.Position()
-    #while pos<dur-1000000:
+    #while pos<dur-500000:
     #    pos=dbusIfaceProp.Position()
     #    print pos
 
@@ -358,7 +358,7 @@ while 1:
     print "sleeping_"
 
 
-    while pos<=dur-1000000:
+    while pos<=dur-500000:
         pos=dbusIfaceProp.Position()
         #print pos
         if pos == 0:
@@ -401,12 +401,12 @@ while 1:
 
 
     dur3 = dbusIfaceProp2.Duration()
-    d2.text = str(dur3/1000000)
+    d2.text = str(dur3/500000)
     totaldur += dur3
     print "totalduration:"
     print totaldur
     pos3 = dbusIfaceProp2.Position()
-    while pos3<=dur3-1000000:
+    while pos3<=dur3-500000:
         pos3=dbusIfaceProp2.Position()
         #print pos3
         if pos3 == 0:
