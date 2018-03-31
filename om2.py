@@ -302,6 +302,8 @@ while 1:
         print "totalduration:"
         print totaldur
         pos4 = dbusIfaceProp3.Position()
+        print "sleeping!"
+        print pos4
         while pos4<=dur4-1000000:
             pos4=dbusIfaceProp3.Position()
             print pos4
@@ -398,7 +400,7 @@ while 1:
     dbusIfaceKey3 = dbus.Interface(object3,'org.mpris.MediaPlayer2.Player')
     #time.sleep(1)
     dbusIfaceKey3.Action(dbus.Int32("16"))
-    print "sleeping"
+    print "sleeping*"
 
 
 
@@ -408,9 +410,10 @@ while 1:
     print "totalduration:"
     print totaldur
     pos3 = dbusIfaceProp2.Position()
+    print pos3
     while pos3<=dur3-1000000:
         pos3=dbusIfaceProp2.Position()
-        #print pos3
+        print pos3
         #if pos3 == 0:
         #    break
 
