@@ -128,7 +128,7 @@ WORKDIR /home/pi
 RUN cd /home/pi
 RUN git clone https://github.com/modmypi/PiModules.git
 RUN git clone https://github.com/AndrewFromMelbourne/raspi2png.git
-WORKING /home/pi/raspi2png
+WORKDIR /home/pi/raspi2png
 RUN make
 
 RUN cd /home/pi/PiModules/code/python/package
