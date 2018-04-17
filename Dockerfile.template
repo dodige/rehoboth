@@ -95,8 +95,8 @@ RUN    useradd pi -d /home/pi \
 #ADD check_net /etc/cron.d
 #ADD wait-dialup-hardware /etc/ppp/
 
-####COPY entry.sh /usr/bin/entry.sh
-#RUN chmod +x /usr/bin/entry.sh
+COPY entry.sh /usr/bin/entry.sh
+RUN chmod +x /usr/bin/entry.sh
 
 
 ADD modules /etc/modules 
