@@ -1,5 +1,5 @@
+
 #!/usr/bin/python
-# -*- Mode: python; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*-
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -11,43 +11,63 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details:
 #
-# Copyright (C) 2008 Novell, Inc.
-# Copyright (C) 2009 - 2010 Red Hat, Inc.
+# Copyright (C) 2009 Novell, Inc.
 #
 
-import sys, dbus
+# An example on how to send an SMS message using ModemManager
 
-DBUS_INTERFACE_PROPERTIES='org.freedesktop.DBus.Properties'
-MM_DBUS_SERVICE='org.freedesktop.ModemManager'
-MM_DBUS_PATH='/org/freedesktop/ModemManager'
-MM_DBUS_INTERFACE='org.freedesktop.ModemManager'
-MM_DBUS_INTERFACE_MODEM='org.freedesktop.ModemManager.Modem'
+import sys
+import dbus
+
+if len(sys.argv) != 3:
+    print "Usage: %s <number> <message>" % sys.argv[0]
+    sys.exit(1)
+
+number = sys.argv[1]
+message = sys.argv[2]
 
 bus = dbus.SystemBus()
 
-# Get available modems:
-manager_proxy = bus.get_object(MM_DBUS_SERVICE, MM_DBUS_PATH)
-manager_iface = dbus.Interface(manager_proxy, dbus_interface=MM_DBUS_INTERFACE)
+manager_proxy = bus.get_object('org.freedesktop.ModemManager', '/org/freedesktop/ModemManager')
+manager_iface = dbus.Interface(manager_proxy, dbus_interface='org.freedesktop.ModemManager')
 modems = manager_iface.EnumerateDevices()
-
-if not modems:
+if len(modems) == 0:
     print "No modems found"
     sys.exit(1)
 
-for m in modems:
-    proxy = bus.get_object(MM_DBUS_SERVICE, m)
+proxy = bus.get_object('org.freedesktop.ModemManager', modems[0])
+modem = dbus.Interface(proxy, dbus_interface='org.freedesktop.ModemManager.Modem')
+modem.Enable(True)
 
-    # Properties
-    props_iface = dbus.Interface(proxy, dbus_interface=DBUS_INTERFACE_PROPERTIES)
 
-    driver = props_iface.Get(MM_DBUS_INTERFACE_MODEM, 'Driver')
-    mtype = props_iface.Get(MM_DBUS_INTERFACE_MODEM, 'Type')
-    device = props_iface.Get(MM_DBUS_INTERFACE_MODEM, 'MasterDevice')
 
-    strtype = ""
-    if mtype == 1:
-        strtype = "GSM"
-    elif mtype == 2:
-        strtype = "CDMA"
+#if len(sys.argv) != 3:
+#    print "Usage: %s <number> <message>" % sys.argv[0]
+#    sys.exit(1)
 
-    print "%s (%s [%s], device %s)" % (m, strtype, driver, device)
+#number = sys.argv[1]
+#message = sys.argv[2]
+
+bus = dbus.SystemBus()
+
+manager_proxy = bus.get_object('org.freedesktop.ModemManager1', '/org/freedesktop/ModemManager1')
+manager_iface = dbus.Interface(manager_proxy, dbus_interface='org.freedesktop.ModemManager1')
+#modems = manager_iface.EnumerateDevices()
+#if len(modems) == 0:
+#    print "No modems found"
+#    sys.exit(1)
+
+om = dbus.Interface(manager_proxy, "org.freedesktop.DBus.ObjectManager")
+
+states = { 10: "Connecting", 11: "Connected" }
+
+modems = om.GetManagedObjects()
+for mpath in modems.keys():
+    modem_state = modems[mpath]['org.freedesktop.ModemManager1.Modem']['State']
+    try:
+        state = states[modem_state]
+    except KeyError:
+        state = "Not connected"
+    print "Modem object path: " + mpath + "  (" + state + ")"
+
+
