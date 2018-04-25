@@ -22,4 +22,4 @@ DBUS_SESSION_BUS_PID=`cat $OMXPLAYER_DBUS_PID`
 export DBUS_SESSION_BUS_ADDRESS
 export DBUS_SESSION_BUS_PID
 
-export BUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
+export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
