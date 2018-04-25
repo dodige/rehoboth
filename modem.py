@@ -19,6 +19,7 @@
 import sys
 import dbus
 import time
+from subprocess import Popen
 
 c1 = "export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket"
 
