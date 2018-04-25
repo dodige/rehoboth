@@ -22,6 +22,8 @@ import time
 from subprocess import Popen
 
 c1 = "export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket"
+Popen([c1],shell=True)
+
 
 #if len(sys.argv) != 3:
 #    print "Usage: %s <number> <message>" % sys.argv[0]
