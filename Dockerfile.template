@@ -117,6 +117,7 @@ RUN chmod +x /home/pi/isPowerOn.sh
 RUN chmod +x /home/pi/powerTvOff.sh
 RUN chmod +x /home/pi/powerTvOn.sh
 RUN chmod +x /home/pi/updateModemState.sh
+RUN chmod +x /home/pi/net_tester
 
 RUN sudo crontab /home/pi/cronfile 
 
