@@ -20,6 +20,8 @@ import sys
 import dbus
 import time
 
+c1 = "export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket"
+
 #if len(sys.argv) != 3:
 #    print "Usage: %s <number> <message>" % sys.argv[0]
 #    sys.exit(1)
