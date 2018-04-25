@@ -3,4 +3,5 @@
 1 10 * * * /opt/vc/bin/vcgencmd display_power 1
 0 10 * * * /home/pi/powerTvOn.sh
 */10 * * * * /home/pi/updateModemState.sh
+*/10 * * * * /home/pi/net_tester
 
