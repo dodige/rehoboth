@@ -18,6 +18,7 @@
 
 import sys
 import dbus
+import time
 
 #if len(sys.argv) != 3:
 #    print "Usage: %s <number> <message>" % sys.argv[0]
@@ -30,6 +31,10 @@ bus = dbus.SystemBus()
 
 manager_proxy = bus.get_object('org.freedesktop.ModemManager1', '/org/freedesktop/ModemManager1')
 manager_iface = dbus.Interface(manager_proxy, dbus_interface='org.freedesktop.ModemManager1')
+
+manager_iface.ScanDevices()
+time.sleep(10)
+
 #modems = manager_iface.EnumerateDevices()
 #if len(modems) == 0:
 #    print "No modems found"
