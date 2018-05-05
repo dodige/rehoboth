@@ -13,7 +13,7 @@ RUN apt-get update && \
         libssl-dev \
         matchbox \
         net-tools \
-        nginx-light \
+#        nginx-light \
         omxplayer \
         psmisc \
         python-dev \
