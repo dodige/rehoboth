@@ -52,6 +52,19 @@ RUN printf 'y' | rpi-update
 RUN curl -s https://bootstrap.pypa.io/get-pip.py | python && \
     pip install xmltodict
 
+
+# node.js nand npm
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
+RUN apt-get install -y nodejs
+
+## You may also need development tools to build native addons:
+#     sudo apt-get install gcc g++ make
+## To install the Yarn package manager, run:
+#     curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+#     echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+#     sudo apt-get update && sudo apt-get install yarn
+
+
 #RUN sudo pip install xmltodict
 
 # Screenly Websocker Server
