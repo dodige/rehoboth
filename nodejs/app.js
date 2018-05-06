@@ -78,7 +78,7 @@ app.post('/upload_photos', function (req, res) {
             filename = Date.now() + '-' + file.name;
 
             // Move the file with the new file name
-            fs.rename(file.path, path.join(__dirname, 'uploads/' + filename),,(err) => { if (err) throw err; console.log('Rename complete!');});
+            fs.rename(file.path, path.join(__dirname, 'uploads/' + filename),(err) => { if (err) throw err; console.log('Rename complete!');});
 
             // Add to the list of photos
             photos.push({
