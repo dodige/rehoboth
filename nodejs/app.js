@@ -7,7 +7,7 @@ var express = require('express'),
 
 var app = express();
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 80));
 
 // Tell express to serve static files from the following directories
 app.use(express.static('public'));
@@ -36,7 +36,7 @@ app.get('/', function (req, res) {
                     days = Math.round((Date.now() - createdAt) / (1000*60*60*24));
 
                 if (days > 1) {
-                    fs.unlink(filesPath + file);
+                    fs.unlink(filesPath + file,(err) => { if (err) throw err; console.log('Rename complete!');});
                 }
             });
         });
@@ -78,7 +78,7 @@ app.post('/upload_photos', function (req, res) {
             filename = Date.now() + '-' + file.name;
 
             // Move the file with the new file name
-            fs.rename(file.path, path.join(__dirname, 'uploads/' + filename));
+            fs.rename(file.path, path.join(__dirname, 'uploads/' + filename),,(err) => { if (err) throw err; console.log('Rename complete!');});
 
             // Add to the list of photos
             photos.push({
@@ -93,7 +93,7 @@ app.post('/upload_photos', function (req, res) {
                 filename: file.name,
                 message: 'Invalid file type'
             });
-            fs.unlink(file.path);
+            fs.unlink(file.path,(err) => { if (err) throw err; console.log('Rename complete!');});
         }
     });
 
