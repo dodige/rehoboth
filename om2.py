@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import dbus, time, sys, os
+import dbus, time, sys, os, glob
 from subprocess import Popen
 
 import ctypes
@@ -80,6 +80,23 @@ playlist_tree = ET.parse('playlist.xml')
 playlist_root = playlist_tree.getroot()
 print playlist_root.tag
 print playlist_root.attrib
+
+
+
+path = '/data/*.xml'
+filess = glob.glob(path)
+for name in filess:
+    try:
+        //with open(name) as f:
+        //
+        xmlSnippet  = ET.parse(name)
+        playlist_root.append(xmlSnippet)
+
+        pass
+    except IOError as exc:
+        if exc.errno != errno.EISDIR:
+            raise
+
 
 i=0
 currentDate = datetime.now()
@@ -463,7 +480,27 @@ while 1:
         reloadFlag = 1
         totaldur = 0
         ind = 0
+    
+        path = '/data/*.xml'
+        filesss = glob.glob(path)
+        for name in filesss:
+            try:
+            //with open(name) as f:
+            //
+            xmlSnippet  = ET.parse(name)
+            playlist_root.append(xmlSnippet)
+            print playlist_root
 
+        pass
+    
+        except IOError as exc:
+            if exc.errno != errno.EISDIR:
+            raise
+
+
+
+        
+        
 
 
     dbusa ="com.gg.com1"+str(lay)
