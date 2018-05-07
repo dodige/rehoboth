@@ -3,6 +3,7 @@ var express = require('express'),
     fs = require('fs'),
     formidable = require('formidable'),
     readChunk = require('read-chunk'),
+    builder = require('xmlbuilder'),
     serveStatic = require('serve-static'),
     fileType = require('file-type');
 
