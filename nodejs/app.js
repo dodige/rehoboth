@@ -3,6 +3,7 @@ var express = require('express'),
     fs = require('fs'),
     formidable = require('formidable'),
     readChunk = require('read-chunk'),
+    readChunk = require('serve-static'),
     fileType = require('file-type');
 
 var app = express();
@@ -16,8 +17,8 @@ app.set('port', (process.env.PORT || 80));
 // Tell express to serve static files from the following directories
 app.use(express.static('public'));
 //app.use('/data/uploads', express.static('/data/uploads'));
-app.use(serveStatic('/data'));
-app.use('data', serveStatic('/data'));
+app.use(serve-static('/data'));
+app.use('data', serve-static('/data'));
 
 
 
