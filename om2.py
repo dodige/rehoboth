@@ -87,8 +87,8 @@ path = '/data/*.xml'
 filess = glob.glob(path)
 for name in filess:
     try:
-        //with open(name) as f:
-        //
+        # with open(name) as f:
+        #
         xmlSnippet  = ET.parse(name)
         playlist_root.append(xmlSnippet)
 
@@ -485,8 +485,8 @@ while 1:
         filesss = glob.glob(path)
         for name in filesss:
             try:
-            //with open(name) as f:
-            //
+            #with open(name) as f:
+            #
             xmlSnippet  = ET.parse(name)
             playlist_root.append(xmlSnippet)
             print playlist_root
