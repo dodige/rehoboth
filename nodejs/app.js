@@ -10,8 +10,16 @@ var app = express();
 app.set('port', (process.env.PORT || 80));
 
 // Tell express to serve static files from the following directories
+//app.use(express.static('public'));
+//app.use('/uploads', express.static('uploads'));
+
+// Tell express to serve static files from the following directories
 app.use(express.static('public'));
-app.use('/uploads', express.static('uploads'));
+//app.use('/data/uploads', express.static('/data/uploads'));
+app.use(serveStatic('/data'));
+app.use('data', serveStatic('/data'));
+
+
 
 /**
  * Index route
@@ -78,14 +86,26 @@ app.post('/upload_photos', function (req, res) {
             filename = Date.now() + '-' + file.name;
 
             // Move the file with the new file name
-            fs.rename(file.path, path.join(__dirname, 'uploads/' + filename),(err) => { if (err) throw err; console.log('Rename complete!');});
+            //fs.rename(file.path, path.join(__dirname, 'uploads/' + filename),(err) => { if (err) throw err; console.log('Rename complete!');});
+            // Move the file with the new file name
+            fs.copyFile(file.path, path.join('/data', filename),(err) => { if (err) throw err; console.log('Rename complete!');});
+
+            var vid = builder.create('picture');
+            vid.att('priority','1')
+            vid.att('time_played','0')
+            vid.ele('filename', '/data/'+filename );
+            vid.ele('duration', '15' );
+            vid.ele('schedule',  '*/1 * * * *');
+            
+            var xmldoc = vid.toString({ pretty: true });
+            fs.writeFile('/data/'+filename+'.xml', xmldoc, function(err) {if(err) { return console.log(err); }});
 
             // Add to the list of photos
             photos.push({
                 status: true,
                 filename: filename,
                 type: type.ext,
-                publicPath: 'uploads/' + filename
+                publicPath: '/' + filename
             });
         } else {
             photos.push({
