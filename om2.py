@@ -493,9 +493,9 @@ while 1:
 
                 pass
     
-        except IOError as exc:
-            if exc.errno != errno.EISDIR:
-                raise
+            except IOError as exc:
+                if exc.errno != errno.EISDIR:
+                    raise
 
 
 
