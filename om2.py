@@ -96,7 +96,8 @@ for name in filess:
     except IOError as exc:
         if exc.errno != errno.EISDIR:
             raise
-
+            
+print playlist_root
 
 i=0
 currentDate = datetime.now()
