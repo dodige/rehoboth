@@ -92,7 +92,13 @@ app.post('/upload_photos', function (req, res) {
             // Move the file with the new file name
             fs.copyFile(file.path, path.join('/data', filename),(err) => { if (err) throw err; console.log('Rename complete!');});
 
+            //var vid = builder.create('image');
             var vid = builder.create('image');
+            if ( type.ext ==='mp4' ){
+                var vid = builder.create('video');
+            }
+
+            //var vid = builder.create('image');
             vid.att('priority','1')
             vid.att('time_played','0')
             vid.ele('filename', '/data/'+filename );
