@@ -97,6 +97,8 @@ app.post('/upload_photos', function (req, res) {
             vid.att('time_played','0')
             vid.ele('filename', '/data/'+filename );
             vid.ele('duration', '15' );
+            vid.ele('url', '15' );
+            vid.ele('local_url', '15' );
             vid.ele('schedule',  '*/1 * * * *');
             
             var xmldoc = vid.toString({ pretty: true });
