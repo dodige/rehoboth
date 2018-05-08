@@ -83,7 +83,7 @@ app.post('/upload_photos', function (req, res) {
         type = fileType(buffer);
 
         // Check the file type, must be either png,jpg or jpeg
-        if (type !== null && (type.ext === 'png' || type.ext === 'jpg' || type.ext === 'jpeg')) {
+        if (type !== null && (type.ext === 'png' || type.ext === 'jpg' || type.ext === 'jpeg' || type.ext === 'mp4')) {
             // Assign new file name
             filename = Date.now() + '-' + file.name;
 
