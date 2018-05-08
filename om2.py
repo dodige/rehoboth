@@ -90,7 +90,8 @@ for name in filess:
         # with open(name) as f:
         #
         xmlSnippet = ET.parse(name)
-        playlist_root.append(xmlSnippet)
+        playlist_root.append(xmlSnippet.getroot())
+        #playlist_root.append(xmlSnippet)
 
         pass
     except IOError as exc:
@@ -489,8 +490,9 @@ while 1:
                 #with open(name) as f:
                 #
                 xmlSnippet = ET.parse(name)
-                playlist_root.append(xmlSnippet)
-                print playlist_root
+                #playlist_root.append(xmlSnippet)
+                playlist_root.append(xmlSnippet.getroot())
+                #print playlist_root
 
                 pass
     
