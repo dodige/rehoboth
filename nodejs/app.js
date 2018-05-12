@@ -5,7 +5,8 @@ var express = require('express'),
     readChunk = require('read-chunk'),
     builder = require('xmlbuilder'),
     serveStatic = require('serve-static'),
-    fileType = require('file-type');
+    fileType = require('file-type'),
+    url = require('url');
 
 var app = express();
 
@@ -54,6 +55,59 @@ app.get('/', function (req, res) {
 
     res.sendFile(path.join(__dirname, 'views/index.html'));
 });
+
+
+/**
+ * list route
+ */
+app.get('/list', function (req, res) {
+
+    var filesPath = '/data/';
+    fs.readdir(filesPath, function (err, files) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+
+        var imageLists = '<ul>';
+        for (var i=0; i<files.length; i++) {
+
+            if (path.extname(files[i])==='.jpg') {
+
+                imageLists += '<li><img   width="200" height="300" src="/' + files[i] + '">' + files[i] + '</a>' + '<a href="/delete/?image=/data/' + files[i] + '">' + $
+            }
+
+            if (path.extname(files[i])==='.mp4') {
+
+                imageLists += '<li><a href="/' + files[i] + '">' + files[i] + '</a>' + '<a href="/delete/?image=/data/' + files[i] + '">' + ' Delete file '+'</li>';
+            }
+
+        }
+        imageLists += '</ul>';
+        res.writeHead(200, {'Content-type':'text/html'});
+        res.end(imageLists);
+
+
+    });
+});
+
+/**
+ * delete file
+ */
+app.get('/delete', function (req, res) {
+
+    var filesPath = '/data/';
+    var query = url.parse(req.url,true).query;
+    pic = query.image;
+    fs.unlink(pic,(err) => { if (err) throw err; console.log('delete complete!');});
+    fs.unlink(pic+'.xml',(err) => { if (err) throw err; console.log('delete complete!');});
+    res.status(200);
+    res.redirect('/list');
+
+});
+
+
+
 
 /**
  * Upload photos route.
