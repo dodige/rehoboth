@@ -74,7 +74,7 @@ app.get('/list', function (req, res) {
 
             if (path.extname(files[i])==='.jpg') {
 
-                imageLists += '<li><img   width="200" height="300" src="/' + files[i] + '">' + files[i] + '</a>' + '<a href="/delete/?image=/data/' + files[i] + '">' + $
+                imageLists += '<li><img   width="200" height="300" src="/' + files[i] + '">' + files[i] + '</a>' + '<a href="/delete/?image=/data/' + files[i] + '">' 
             }
 
             if (path.extname(files[i])==='.mp4') {
