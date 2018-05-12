@@ -84,9 +84,9 @@ app.get('/list', function (req, res) {
 
         }
         imageLists += '</ul>';
-        //res.writeHead(200, {'Content-type':'text/html'});
-        //res.end(imageLists);
-        res.redirect('/list');
+        res.writeHead(200, {'Content-type':'text/html'});
+        res.end(imageLists);
+        //res.redirect('/list');
 
 
     });
