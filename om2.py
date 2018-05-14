@@ -497,44 +497,7 @@ while 1:
         print "*********************  duration timeexpired  ********************************************* "
         reloadFlag = 1
         totaldur = 0
-        ind = 0
-    
-        
-        path = '/data/*.xml'
-        filess = glob.glob(path)
-        for name in filess:
-            try:
-                # with open(name) as f:
-                #
-                xmlSnippet = ET.parse(name)
-
-                trouve=0
-                for videoSection  in playlist_root.findall('video'):
-                    currentVid = videoSection.find('filename').text
-                    print currentVid
-                    print xmlSnippet.getroot().find('filename').text
-                    if currentVid == xmlSnippet.getroot().find('filename').text:
-                        trouve = 1
-                        print "already there"
-
-
-                #print  playlist_root.find("./video[filename='"+name+"']")
-                #if  playlist_root.find("./video[filename='"+name+"']") == None :
-                if trouve == 0:
-                   playlist_root.append(xmlSnippet.getroot())
-                   #playlist_root.append(xmlSnippet)
-                   print "added"
-
-                print "here..."
-                pass
-            except IOError as exc:
-                if exc.errno != errno.EISDIR:
-                    raise
-
-
-
-        
-        
+        ind = 0    
 
 
     dbusa ="com.gg.com1"+str(lay)
@@ -603,18 +566,58 @@ while 1:
 
         playlist_tree_temp  = ET.parse('playlist.xml')
         playlist_root_temp  = playlist_tree_temp.getroot()
-        for item in playlist_root_temp.findall('version'):
-            print item.text
-            if float(item.text) != version_cur:
-                playlist_root = playlist_tree_temp.getroot()
-                playlist_tree = playlist_tree_temp
-                print "new version"
-            else:
-                playlist_tree.write("playlist.xml")
-                playlist_root = playlist_tree.getroot()
-                print "old version"
+        
+        playlist_root = playlist_tree_temp.getroot()
+        playlist_tree = playlist_tree_temp
+        
+        #for item in playlist_root_temp.findall('version'):
+        #    print item.text
+        #    if float(item.text) != version_cur:
+        #        playlist_root = playlist_tree_temp.getroot()
+        #        playlist_tree = playlist_tree_temp
+        #        print "new version"
+        #    else:
+        #        playlist_tree.write("playlist.xml")
+        #        playlist_root = playlist_tree.getroot()
+                
+        #        playlist_root = playlist_tree_temp.getroot()
+        #        playlist_tree = playlist_tree_temp
+                
+        #        print "old version"
 
 
+        ###
+        path = '/data/*.xml'
+        filess = glob.glob(path)
+        for name in filess:
+            try:
+                # with open(name) as f:
+                #
+                xmlSnippet = ET.parse(name)
+
+                trouve=0
+                for videoSection  in playlist_root.findall('video'):
+                    currentVid = videoSection.find('filename').text
+                    print currentVid
+                    print xmlSnippet.getroot().find('filename').text
+                    if currentVid == xmlSnippet.getroot().find('filename').text:
+                        trouve = 1
+                        print "already there"
+
+
+                #print  playlist_root.find("./video[filename='"+name+"']")
+                #if  playlist_root.find("./video[filename='"+name+"']") == None :
+                if trouve == 0:
+                   playlist_root.append(xmlSnippet.getroot())
+                   #playlist_root.append(xmlSnippet)
+                   print "added"
+
+                print "here..."
+                pass
+            except IOError as exc:
+                if exc.errno != errno.EISDIR:
+                    raise
+          ###
 
         #print playlist_root.tag
         #print playlist_root.attrib
