@@ -81,6 +81,11 @@ app.get('/list', function (req, res) {
 
                 imageLists += '<li><a href="/' + files[i] + '">' + files[i] + '</a>' + '<a href="/delete/?image=/data/' + files[i] + '">' + ' Delete file '+'</li>';
             }
+            
+             if (path.extname(files[i])==='.m4v') {
+
+                imageLists += '<li><a href="/' + files[i] + '">' + files[i] + '</a>' + '<a href="/delete/?image=/data/' + files[i] + '">' + ' Delete file '+'</li>';
+            }
 
         }
         imageLists += '</ul>';
