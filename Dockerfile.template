@@ -13,7 +13,6 @@ RUN apt-get update && \
         libssl-dev \
         matchbox \
         net-tools \
-#        nginx-light \
         omxplayer \
         psmisc \
         python-dev \
@@ -44,8 +43,6 @@ RUN apt-get install git python-dev python-serial python-smbus python-jinja2 pyth
 
 RUN printf 'y' | rpi-update
 
-#RUN rm /etc/nginx/sites-enabled/default
-#COPY ansible/roles/ssl/files/nginx_resin.conf /etc/nginx/sites-enabled/screenly.conf
 
 # Install Python requirements
 #ADD requirements.txt /tmp/requirements.txt
