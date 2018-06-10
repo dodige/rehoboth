@@ -53,7 +53,7 @@ RUN curl -s https://bootstrap.pypa.io/get-pip.py | python && \
 # node.js nand npm
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get install -y nodejs
-RUN npm install express formidable read-chunk file-type xmlbuilder serve-static url --save
+RUN npm install shelljs express formidable read-chunk file-type xmlbuilder serve-static url --save
 
 ## You may also need development tools to build native addons:
 #     sudo apt-get install gcc g++ make
