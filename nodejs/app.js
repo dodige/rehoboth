@@ -6,6 +6,7 @@ var express = require('express'),
     builder = require('xmlbuilder'),
     serveStatic = require('serve-static'),
     fileType = require('file-type'),
+    shell = require('shelljs');
     url = require('url');
 
 var app = express();
@@ -21,7 +22,7 @@ app.use(express.static('public'));
 //app.use('/data/uploads', express.static('/data/uploads'));
 app.use(serveStatic('/data'));
 app.use('data', serveStatic('/data'));
-
+app.use(express.static('/home/pi/raspi2png'));
 
 
 /**
@@ -112,7 +113,18 @@ app.get('/delete', function (req, res) {
 
 });
 
+/**
+ * show current file
+ */
+app.get('/show', function (req, res) {
 
+        if (shell.exec('/home/pi/raspi2png/raspi2png -p /home/pi/raspi2png/snapshot1.png').code !== 0) {
+                shell.echo('Error: rasp2png failed');
+        }
+        var imageLists = '<img width="960" height="540" src="/snapshot1.png' + '">';
+        res.writeHead(200, {'Content-type':'text/html'});
+        res.end(imageLists);
+});
 
 
 /**
