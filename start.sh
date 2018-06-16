@@ -1,12 +1,14 @@
- cd /home/pi
- 
- /etc/init.d/cron restart
+#cd /home/pi/nodejs
 
+#node app.js&
+
+cd /home/pi
+
+/etc/init.d/cron restart
+
+/home/pi/updateModemState.sh&
 
 /home/pi/om2.py
-
-/home/pi/updateModemState.sh
-
 
 # sleep 30
 
