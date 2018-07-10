@@ -131,6 +131,8 @@ RUN chmod +x /home/pi/updateModemState.sh
 RUN chmod +x /home/pi/net_tester
 RUN chmod +x /home/pi/setWifi.sh
 
+RUN chmod +x /home/pi/rebootSystem.sh
+
 RUN sudo crontab /home/pi/cronfile 
 
 #RUN chmod +x /etc/ppp/wait-dialup-hardware
