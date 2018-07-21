@@ -8,7 +8,7 @@ cd /home/pi
 
 /home/pi/updateModemState.sh&
 
-/home/pi/om2.py
+/home/pi/om2.py&
 
 uv4l -driver raspidisp
 export LD_PRELOAD=/usr/lib/uv4l/uv4lext/armv6l/libuv4lext.so
