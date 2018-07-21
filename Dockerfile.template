@@ -63,6 +63,7 @@ RUN echo 'deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ jessie m
 RUN apt-get update
 RUN apt-get install uv4l uv4l-raspicam uv4l-tc358743-extras uv4l-server uv4l-uvc uv4l-xscreen uv4l-mjpegstream uv4l-dummy uv4l-raspidisp uv4l-webrtc  uv4l-xmpp-bridge
 RUN echo 'tc358743=yes' >> /etc/uv4l/uv4l-raspicam.conf
+RUN export LD_PRELOAD=/usr/lib/uv4l/uv4lext/armv6l/libuv4lext.so
 
 # node.js nand npm
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
