@@ -10,6 +10,11 @@ cd /home/pi
 
 /home/pi/om2.py
 
+uv4l -driver raspidisp
+export LD_PRELOAD=/usr/lib/uv4l/uv4lext/armv6l/libuv4lext.so
+route add -net 224.0.0.0 netmask 240.0.0.0 eth0
+avconv -f video4linux2  -re -i /dev/uv4l -f avi -an   udp://239.0.1.23:1234& 
+
 # sleep 30
 
 # ./net_tester
