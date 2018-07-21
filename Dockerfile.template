@@ -1,4 +1,4 @@
-FROM resin/%%RESIN_MACHINE_NAME%%-raspian
+FROM resin/%%RESIN_MACHINE_NAME%%-debian
 MAINTAINER d Odige <dodige@gmail.com>
 
 
