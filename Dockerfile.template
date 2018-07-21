@@ -57,6 +57,11 @@ RUN dpkg -i /home/pi/pwlibs1_1.1_armhf.deb
 RUN wget http://dl.piwall.co.uk/pwomxplayer_20130815_armhf.deb
 RUN dpkg -i /home/pi/pwomxplayer_20130815_armhf.deb
 
+RUN curl http://www.linux-projects.org/listing/uv4l_repo/lrkey.asc | sudo apt-key add -
+RUN echo 'deb http://www.linux-projects.org/listing/uv4l_repo/raspbian/ jessie main' >> /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get install uv4l uv4l-raspicam uv4l-tc358743-extras uv4l-server uv4l-uvc uv4l-xscreen uv4l-mjpegstream uv4l-dummy uv4l-raspidisp uv4l-webrtc  uv4l-xmpp-bridge
+RUN echo 'tc358743=yes' >> /etc/uv4l/uv4l-raspicam.conf
 
 # node.js nand npm
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
