@@ -3,7 +3,7 @@ import dbus, uuid
 
 ## Change these values
 SSID="Outremont Media"
-PASSWORD="!Media2k18"
+PASSWORD="!Media2k19"
 ##
 
 s_con = dbus.Dictionary({
