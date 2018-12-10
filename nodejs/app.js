@@ -118,7 +118,7 @@ app.get('/delete', function (req, res) {
  */
 app.get('/show', function (req, res) {
 
-        if (shell.exec('/home/pi/raspi2png/raspi2png -p -w 480 -h 280 /home/pi/raspi2png/snapshot1.png').code !== 0) {
+        if (shell.exec('/home/pi/raspi2png/raspi2png -w 480 -h 280 -p /home/pi/raspi2png/snapshot1.png').code !== 0) {
                 shell.echo('Error: rasp2png failed');
         }
         var imageLists = '<img  height="280" width="480" src="/snapshot1.png' + '">';
