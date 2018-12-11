@@ -50,6 +50,10 @@ RUN printf 'y' | rpi-update
 #ADD requirements.txt /tmp/requirements.txt
 RUN curl -s https://bootstrap.pypa.io/get-pip.py | python && \
     pip install xmltodict
+    
+    
+#networkmanager
+RUN apt-get update && apt-get install -y network-manager && systemctl mask NetworkManager.service
 
 # pmomxplayer
 RUN wget http://dl.piwall.co.uk/pwlibs1_1.1_armhf.deb
