@@ -1,27 +1,6 @@
 <playlist last_change="20080801">
     <version>1.0</version>
     <video priority="1" time_played="102166">
-        <filename>eddo11.m4v</filename>
-        <duration>15</duration>
-        <schedule>*/1 * * * *</schedule>
-        <url>http://</url>
-        <local_url>tt</local_url>
-    </video>
-    <video priority="1" time_played="102166">
-        <filename>eddo22.m4v</filename>
-        <duration>15</duration>
-        <schedule>*/1 * * * *</schedule>
-        <url>http://</url>
-        <local_url>tt</local_url>
-    </video>
-    <video priority="1" time_played="102166">
-        <filename>eddo22.m4v</filename>
-        <duration>14</duration>
-        <schedule>*/1 * * * *</schedule>
-        <url>http://</url>
-        <local_url>jj</local_url>
-    </video>
-    <video priority="1" time_played="102166">
         <filename>promo1.m4v</filename>
         <duration>13</duration>
         <schedule>*/1 * * * *</schedule>
